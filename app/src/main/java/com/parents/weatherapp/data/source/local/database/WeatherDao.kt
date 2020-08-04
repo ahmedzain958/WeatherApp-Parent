@@ -1,15 +1,12 @@
 package com.parents.weatherapp.data.source.local.database
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.parents.weatherapp.data.source.local.database.DatabaseConstants.TABLE_CITY
 import com.parents.weatherapp.domain.model.City
 
 @Dao
 interface WeatherDao {
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(city: City)
 
     @Delete
@@ -23,4 +20,7 @@ interface WeatherDao {
 
     @Insert
     suspend fun insertAll(city: City)
+
+  /*  @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun saveFiveDayForecast(fiveDayForecast: FiveDayForecast, lat: Double, lon: Double)*/
 }

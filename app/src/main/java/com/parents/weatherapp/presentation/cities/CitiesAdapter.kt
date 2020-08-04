@@ -19,6 +19,7 @@ class CitiesAdapter(
 
     interface OnCityClickListener {
         fun onCityClicked(city: City)
+        fun onCityDelete(city: City)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -46,6 +47,9 @@ class CitiesAdapter(
             val holderCityBinding = viewDataBinding as HolderCityBinding
             holderCityBinding.buttonFivedayforecast.setOnClickListener {
                 onCityClickListener.onCityClicked(city)
+            }
+            holderCityBinding.buttonDelete.setOnClickListener {
+                onCityClickListener.onCityDelete(city)
             }
             holderCityBinding.city = city
         }

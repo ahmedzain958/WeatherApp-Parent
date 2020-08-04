@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.parents.weatherapp.domain.model.City
 import com.parents.weatherapp.domain.model.ErrorModel
 import com.parents.weatherapp.domain.usecase.base.UseCaseResponse
-import com.parents.weatherapp.domain.usecase.cities.SaveCityUseCase
+import com.parents.weatherapp.domain.usecase.cities.SaveCurrentLocationCityUseCase
 import com.parents.weatherapp.presentation.base.BaseViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
@@ -14,7 +14,7 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
  */
 @ExperimentalCoroutinesApi
 class CitiesViewModel constructor(
-    private val saveCityUseCase: SaveCityUseCase
+    private val saveCurrentLocationCityUseCase: SaveCurrentLocationCityUseCase
 ) : BaseViewModel() {
     val cities: LiveData<List<City>>
         get() = _cities
@@ -28,10 +28,10 @@ class CitiesViewModel constructor(
         get() = _messageData
     private val _messageData by lazy { MutableLiveData<String>() }
 
-    fun saveCity(city: City) {
+    fun saveCurrentLocationCity(city: City) {
         _showProgressbar.value = true
-        saveCityUseCase.invoke(
-            SaveCityUseCase.Params(city), object : UseCaseResponse<List<City>> {
+        saveCurrentLocationCityUseCase.invoke(
+            SaveCurrentLocationCityUseCase.Params(city), object : UseCaseResponse<List<City>> {
                 override fun onSuccess(result: List<City>) {
                     _cities.value = result
                     if (result.isNotEmpty())
@@ -44,4 +44,5 @@ class CitiesViewModel constructor(
                 }
             })
     }
+
 }

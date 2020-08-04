@@ -15,7 +15,7 @@ class HeadersInterceptor :
 
     private fun setupRequestHeaders(oldRequest: Request): Request {
         return oldRequest.newBuilder()
-            .addHeader("Content-Type", "application/json; charset=UTF-8")
+            .addHeader("Content-Type", "application/json")
             .build()
     }
 

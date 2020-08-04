@@ -12,14 +12,14 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_60dp"
+        android:layout_height="@dimen/height_100dp"
         android:layout_margin="@dimen/margin_2dp"
         app:cardCornerRadius="@dimen/corner_radius_8dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/margin_8dp"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_8dp"
             android:background="@android:color/white">
 
             <ImageView
@@ -31,8 +31,7 @@
                 app:layout_constraintEnd_toStartOf="@id/textview_city"
                 app:layout_constraintHeight_percent="0.6"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textview_city"
@@ -43,8 +42,8 @@
                 android:textColor="@color/colorPrimary"
                 android:textSize="@dimen/size_16sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/button_fivedayforecast"
                 app:layout_constraintBottom_toBottomOf="@id/imageview_city"
+                app:layout_constraintEnd_toStartOf="@+id/button_fivedayforecast"
                 app:layout_constraintStart_toEndOf="@id/imageview_city"
                 app:layout_constraintTop_toTopOf="@+id/imageview_city"
                 tools:text="London" />
@@ -56,11 +55,20 @@
                 android:background="@drawable/ic_weather"
                 android:text="@string/five_day_forecast"
                 android:textColor="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                />
+                app:layout_constraintTop_toTopOf="parent" />
 
+            <Button
+                android:id="@+id/button_delete"
+                android:layout_width="@dimen/width_30dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_marginTop="@dimen/margin_4dp"
+                android:background="@drawable/ic_delete"
+                android:textColor="@android:color/white"
+               app:layout_constraintStart_toStartOf="@+id/button_fivedayforecast"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/button_fivedayforecast"
+                app:layout_constraintTop_toBottomOf="@id/button_fivedayforecast" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 

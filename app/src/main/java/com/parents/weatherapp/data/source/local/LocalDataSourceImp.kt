@@ -2,6 +2,7 @@ package com.parents.weatherapp.data.source.local
 
 import com.parents.weatherapp.data.source.local.database.WeatherDao
 import com.parents.weatherapp.domain.model.City
+import com.parents.weatherapp.domain.model.fivedayforecast.FiveDayForecast
 
 
 /**
@@ -24,6 +25,18 @@ class LocalDataSourceImp(
 
     override suspend fun getCities(): List<City> {
         return weatherDao.getCities()
+    }
+
+    override suspend fun saveFiveDayForecast(
+        fiveDayForecast: FiveDayForecast,
+        lat: Double,
+        lon: Double
+    ) {
+        /*weatherDao.saveFiveDayForecast(
+            fiveDayForecast,
+            lat,
+            lon
+        )*/
     }
 
 }
